@@ -1,27 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
-import CartModal from "../Components/CartModal/CartModal";
-import { toogleCart } from "../redux/cart/cart.action";
 
-const Layout = ({ children, toogle }) => {
+const Layout = ({ children, classes }) => {
   return (
-    <>
-      <CartModal />
-      <div className="App">
-        <div className="bg-black flex justify-between text-white p-5 mb-5">
-          <p>Header</p>
-          <p onClick={toogle} role={"button"}>
-            Click to see Cart
-          </p>
-        </div>
-        {children}
-        <div className="bg-black text-white p-5 mt-5">Footer</div>
+    <div className={classes}>
+      <div className="p-2 text-3xl font-bold">Space X Launch Programms</div>
+      {children}
+      <div className="p-12 bg-transparent" />
+      <div className="flex  justify-center items-center w-full text-center p-5 fixed bottom-0 left-0  bg-white text-black">
+        <p className="font-bold mr-1">Developed by: </p>{" "}
+        <p> Vinay Maheshwari</p>
       </div>
-    </>
+    </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  toogle: () => dispatch(toogleCart()),
-});
-export default connect(null, mapDispatchToProps)(Layout);
+export default Layout;
