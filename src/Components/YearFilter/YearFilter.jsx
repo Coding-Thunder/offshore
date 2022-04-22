@@ -8,10 +8,10 @@ const YearFilter = ({ fetchLaunch }) => {
     Years: null,
   });
 
-  useEffect(async () => {
-    const arr = await getYears(2006);
+  useEffect(() => {
+    const arr = getYears(2006);
     setState({ ...state, Years: arr });
-  }, []);
+  }, [state]);
   return (
     <div className="w-full h-auto flex flex-col justify-between items-start lg:items-center xl:items-center 2xl:items-center flex-wrap overflow-hidden">
       <p className="p-1 border-b-2 border-black cursor-pointer">Launch Year</p>
